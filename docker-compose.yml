@@ -1,10 +1,11 @@
 services:
   front:
     build: .
+    image: ohmygoatsemifir/angular:latest
     container_name: "${PROJECT_NAME}-front"
     ports: 
-      - "${PORT}:${CONTAINER_PORT}"
-    command: bash -c "git clone ${URL} && cd ${PROJECT_NAME} && npm ci && ng serve --host 0.0.0.0 --port ${PORT}"
+      - "${PORT}:4200"
+    command: bash -c "git clone ${REPO_URL} && cd ${PROJECT_NAME} && npm ci && ng serve --host 0.0.0.0 --port 4200"
     networks:
       - app-network
 networks:
